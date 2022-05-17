@@ -11,7 +11,8 @@ Obs: 1 - Tanto o docker quando docker-compose deverão estar instalado em sua m�
     docker-compose up
  3 - Executar o conteúdo do arquivo setup.sql em sua ferramenta preferida.
  4 - Para iniciar a aplicação executar o comando:
-    ./mvnw spring-boot:run
+    Linux/OSX: ./mvnw spring-boot:run
+    Windows: mvnw spring-boot:run
     
 Para saber quais endpoints tem na aplicação e como utilizá-lo por favor acessar o link abaixo:
 http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config
