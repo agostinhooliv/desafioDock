@@ -7,9 +7,12 @@ Obs: 1 - Tanto o docker quando docker-compose deverão estar instalado em sua m�
  Para executar a aplicação por favor seguir os passos abaixo:
  
  1 - Baixar a aplicação;
+ 
  2 - Ir até a pasta da aplicação e executar o comando:
     docker-compose up
- 3 - Executar o conteúdo do arquivo setup.sql em sua ferramenta preferida.
+    
+ 3 - Executar o conteúdo do arquivo setup.sql em sua ferramenta preferida;
+ 
  4 - Para iniciar a aplicação executar o comando:
     Linux/OSX: ./mvnw spring-boot:run
     Windows: mvnw spring-boot:run
