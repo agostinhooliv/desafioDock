@@ -81,6 +81,11 @@ public class ContaService {
         }
     }
 
+    @GetMapping("/consultarContas")
+    public ResponseEntity<?> consultarContas() {
+        return new ResponseEntity<>(contaBusiness.listarTodas(), HttpStatus.OK);
+    }
+
     private Conta getConta(Long idConta) {
         return contaBusiness.buscarContaPorId(idConta);
     }

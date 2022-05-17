@@ -47,22 +47,15 @@ public class Rabbitmq {
         try (Connection connection = factory.newConnection()) {
             Channel channel = connection.createChannel();
             channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-//            Consumer consumer = new DefaultConsumer(channel) {
-//                @Override
-//                public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-//                    String mensagem = new String(body, "UTF-8");
-//                    System.out.println("Mensagem recebida: " + mensagem);
-//                }
-//            };
-//            channel.basicConsume(QUEUE_NAME, true, consumer);
 
             System.out.println("Waiting for messages from the queue. To exit press CTRL+C");
 
             final DeliverCallback deliverCallback = (consumerTag, delivery) -> {
                 final String message = new String(delivery.getBody(), "UTF-8");
+                System.out.println("Received from message from the queue: " + message);
                 String[] dadosSaque = message.split("-");
                 contaBusiness.saque(Long.valueOf(dadosSaque[0]), Double.valueOf(dadosSaque[1]));
-                System.out.println("Received from message from the queue: " + message);
+
             };
 
             channel.basicConsume(QUEUE_NAME, true, deliverCallback, consumerTag -> {

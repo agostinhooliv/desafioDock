@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.transaction.Transactional;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @org.springframework.stereotype.Service
@@ -70,5 +71,9 @@ public class ContaBusiness {
         }
 
         return null;
+    }
+
+    public List<Conta> listarTodas() {
+        return contaDAO.findAll();
     }
 }
